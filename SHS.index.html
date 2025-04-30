@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sebenza Hiring Solution - Domestic Staff Recruitment</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #2c5e92;
+            --secondary-color: #4caf50;
+            --accent-color: #ff6b6b;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --text-color: #333;
+            --text-light: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #1e4166;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #3d8b40;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--light-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-card h3 i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        /* Job Seekers & Employers Sections */
+        .split-section {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .split-section > div {
+            flex: 1;
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        /* Success Stories */
+        .success-stories {
+            background-color: var(--light-color);
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info div {
+            margin-bottom: 20px;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .map {
+            height: 300px;
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-content,
+            .split-section,
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/50x50" alt="Sebenza Hiring Solution Logo">
+                <h1>Sebenza Hiring Solution</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#job-seekers">Job Seekers</a></li>
+                    <li><a href="#employers">Employers</a></li>
+                    <li><a href="#success-stories">Success Stories</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#" class="btn">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Connecting You to Your Next Opportunity in the Domestic Industry</h1>
+            <p>Helping unemployed individuals find work in housekeeping, nanny services, and house maintenance.</p>
+            <a href="#job-seekers" class="btn btn-secondary">Apply Now</a>
+            <a href="#employers" class="btn">View Job Opportunities</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>Sebenza Hiring Solution is dedicated to bridging the gap between skilled domestic workers and families or businesses in need of their services. We believe in creating meaningful employment opportunities while providing reliable staffing solutions.</p>
+                    <p>Founded in 2015, we've successfully placed over 1,000 professionals in homes and businesses across the region, helping to reduce unemployment while improving the quality of domestic services.</p>
+                    <p>Our team of experienced recruiters carefully vets all candidates to ensure they meet our high standards of professionalism and skill.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3><i class="fas fa-user-tie"></i> For Job Seekers</h3>
+                    <ul>
+                        <li>Job placement in housekeeping, nanny services, and house maintenance</li>
+                        <li>Resume building assistance and interview preparation</li>
+                        <li>Guidance on career advancement within the domestic industry</li>
+                        <li>Skills development workshops</li>
+                        <li>Ongoing career support and counseling</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-business-time"></i> For Employers</h3>
+                    <ul>
+                        <li>Finding qualified domestic workers (housekeepers, nannies, maintenance staff)</li>
+                        <li>Background checks and reference verification for all candidates</li>
+                        <li>Tailored staffing solutions based on employer needs</li>
+                        <li>Temporary and permanent placement options</li>
+                        <li>Replacement guarantee for unsatisfactory placements</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-handshake"></i> Our Process</h3>
+                    <ol>
+                        <li>Initial consultation to understand your needs</li>
+                        <li>Careful screening and matching process</li>
+                        <li>Interview coordination</li>
+                        <li>Placement and follow-up</li>
+                        <li>Ongoing support and mediation if needed</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Seekers Section -->
+    <section class="job-seekers" id="job-seekers">
+        <div class="container">
+            <h2>For Job Seekers</h2>
+            <div class="split-section">
+                <div>
+                    <h3>Find Your Next Opportunity</h3>
+                    <p>Join our network of skilled domestic professionals and gain access to exclusive job opportunities with reputable employers.</p>
+                    <p>We specialize in placing candidates in the following roles:</p>
+                    <ul>
+                        <li>Housekeepers/Cleaners</li>
+                        <li>Nannies/Childcare Providers</li>
+                        <li>Elderly Caregivers</li>
+                        <li>Gardeners and Maintenance Staff</li>
+                        <li>Domestic Drivers</li>
+                    </ul>
+                    <h4>Tips for Getting Hired:</h4>
+                    <ul>
+                        <li>Highlight your specific skills and experience</li>
+                        <li>Obtain references from previous employers</li>
+                        <li>Be clear about your availability and expectations</li>
+                        <li>Attend our free interview preparation workshops</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Apply Now</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="skills">Skills/Experience</label>
+                            <textarea id="skills" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="position">Position Interested In</label>
+                            <select id="position" required>
+                                <option value="">Select a position</option>
+                                <option value="housekeeper">Housekeeper</option>
+                                <option value="nanny">Nanny/Childcare</option>
+                                <option value="elderly-care">Elderly Care</option>
+                                <option value="maintenance">Maintenance/Gardening</option>
+                                <option value="driver">Domestic Driver</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Employers Section -->
+    <section class="employers" id="employers">
+        <div class="container">
+            <h2>For Employers</h2>
+            <div class="split-section">
+                <div>
+                    <h3>Find Qualified Staff</h3>
+                    <p>We understand the importance of finding reliable, trustworthy domestic staff for your home or business. Our rigorous screening process ensures you only meet qualified candidates who match your specific requirements.</p>
+                    <h4>How It Works:</h4>
+                    <ol>
+                        <li>Tell us about your staffing needs</li>
+                        <li>We identify suitable candidates from our database</li>
+                        <li>Review candidate profiles we send you</li>
+                        <li>Interview selected candidates</li>
+                        <li>Make your choice and we handle the paperwork</li>
+                    </ol>
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>Save time searching for staff</li>
+                        <li>Verified references and background checks</li>
+                        <li>Skills testing for all candidates</li>
+                        <li>Replacement guarantee</li>
+                        <li>Ongoing support</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Post a Job Opening</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="employer-name">Your Name</label>
+                            <input type="text" id="employer-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="employer-email">Email</label>
+                            <input type="email" id="employer-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="employer-phone">Phone Number</label>
+                            <input type="tel" id="employer-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="job-title">Job Title</label>
+                            <input type="text" id="job-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="job-type">Job Type</label>
+                            <select id="job-type" required>
+                                <option value="">Select job type</option>
+                                <option value="full-time">Full-time</option>
+                                <option value="part-time">Part-time</option>
+                                <option value="live-in">Live-in</option>
+                                <option value="temporary">Temporary</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="job-description">Job Description/Requirements</label>
+                            <textarea id="job-description" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Job Posting</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="success-stories" id="success-stories">
+        <div class="container">
+            <h2>Success Stories</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Thanks to Sebenza Hiring Solution, I found my perfect job as a housekeeper with a wonderful family. The agency helped me prepare for the interview and negotiated fair terms for my employment."</p>
+                    <p class="testimonial-author">- Sarah T., Housekeeper</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"We struggled for months to find a reliable nanny for our twins. Sebenza presented us with three excellent candidates, and we hired one who has become like family. The thorough vetting process gave us peace of mind."</p>
+                    <p class="testimonial-author">- The Mbeki Family</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"After being unemployed for over a year, Sebenza helped me get training and certification in elderly care. I now have stable work caring for a sweet elderly gentleman. This agency truly changes lives."</p>
+                    <p class="testimonial-author">- James K., Caregiver</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Business Street, Johannesburg, 2000</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+27 11 123 4567</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@sebenzahiring.co.za</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-clock"></i>
+                        <span>Monday - Friday: 8:00 AM - 5:00 PM</span>
+                    </div>
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.041309240342!2d28.04416531502883!3d-26.20198598344138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c1a1c0b6a1d%3A0x2a9a3b1a1a1a1a1a!2sJohannesburg!5e0!3m2!1sen!2sza!4v1620000000000!5m2!1sen!2sza" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sebenza Hiring Solution</h3>
+                    <p>Connecting skilled domestic workers with families and businesses in need of reliable help since 2015.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#job-seekers">Job Seekers</a></li>
+                        <li><a href="#employers">Employers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Housekeeper Placement</a></li>
+                        <li><a href="#">Nanny Services</a></li>
+                        <li><a href="#">Elderly Care</a></li>
+                        <li><a href="#">Maintenance Staff</a></li>
+                        <li><a href="#">Driver Placement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Sebenza Hiring Solution. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
